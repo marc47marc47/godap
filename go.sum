@@ -1,0 +1,4 @@
+github.com/bradleypeabody/godap v0.0.0-20170216002349-c249933bc092 h1:0Di2onNnlN5PAyWPbqlPyN45eOQ+QW/J9eqLynt4IV4=
+github.com/bradleypeabody/godap v0.0.0-20170216002349-c249933bc092/go.mod h1:8IzBjZCRSnsvM6MJMG8HNNtnzMl48H22rbJL2kRUJ0Y=
+github.com/go-asn1-ber/asn1-ber v1.5.1 h1:pDbRAunXzIUXfx4CB2QJFv5IuPiuoW+sWvr/Us009o8=
+github.com/go-asn1-ber/asn1-ber v1.5.1/go.mod h1:hEBeB/ic+5LoWskz+yKT7vGhhPYkProFKoKdwZRWMe0=
