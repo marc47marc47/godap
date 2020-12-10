@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os/exec"
 	"strings"
 	"time"
 
@@ -59,34 +57,6 @@ func main() {
 	}
 
 	go s.ListenAndServe("127.0.0.1:10000")
-
-	// yeah, you gotta have ldapsearch (from openldap) installed; but if you're
-	// serious about hurting yourself with ldap, you've already done this
-	cmd := exec.Command("/usr/bin/ldapsearch",
-		`-H`,
-		`ldap://127.0.0.1:10000/`,
-		`-Dcn=marc,dc=example,dc=net`,
-		`-wpassword`,
-		`-v`,
-		`-bou=people,dc=example,dc=net`,
-		`(uid=jfk)`,
-	)
-	fmt.Printf("%#s\n", cmd.String())
-
-	b, err := cmd.CombinedOutput()
-	fmt.Printf("RESULT1: %s\n", string(b))
-	if err != nil {
-		log.Fatalf("Error executing: %v", err)
-	}
-
-	bstr := string(b)
-
-	if !strings.Contains(bstr, "dn: cn=jfk,ou=people,dc=example,dc=net") {
-		log.Fatalf("Didn't find expected result string")
-	}
-	if !strings.Contains(bstr, "numEntries: 1") {
-		log.Fatalf("Should have found exactly one result")
-	}
 
 	fmt.Println("Service for 30 minutes:")
 	var c chan int
